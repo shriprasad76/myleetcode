@@ -1,0 +1,42 @@
+#include <stdbool.h>
+#include <stdlib.h>
+
+bool isPalindrome(int x) {
+    
+    if (x < 0 || (x % 10 == 0 && x != 0)) {
+        return false;
+    }
+
+    int count = 0;
+    int original = x;
+    
+    
+    while (x > 0) {
+        count++;
+        x /= 10;
+    }
+
+   
+    int* array = (int*)malloc(sizeof(int) * count);
+    if (!array) return false; 
+
+    x = original;
+    int i = 0;
+   
+    while (x > 0) {
+        array[i] = x % 10;
+        x /= 10;
+        i++;
+    }
+
+   
+    for (i = 0; i < count / 2; i++) {
+        if (array[i] != array[count - i - 1]) {
+            free(array);  
+            return false;
+        }
+    }
+
+    free(array); 
+    return true;
+}
