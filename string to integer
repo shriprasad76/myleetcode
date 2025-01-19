@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <limits.h>
+
+int myAtoi(char* s) {
+   
+    while (*s == ' ') {
+        s++;
+    }
+
+  
+    int sign = 1; 
+    if (*s == '-') {
+        sign = -1;
+        s++;
+    } else if (*s == '+') {
+        s++;
+    }
+
+    
+    int result = 0;
+    while (*s >= '0' && *s <= '9') {
+        int digit = *s - '0';
+        
+        
+        if (result > (INT_MAX - digit) / 10) {
+            return (sign == 1) ? INT_MAX : INT_MIN;
+        }
+
+        result = result * 10 + digit;
+        s++;
+    }
+
+  
+    return sign * result;
+}
