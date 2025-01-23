@@ -1,0 +1,37 @@
+#include <stdlib.h>
+
+int* searchRange(int* nums, int numsSize, int target, int* returnSize) {
+    int i = 0, j = numsSize - 1;
+    int f1 = -1, f2 = -1;  
+    int* a = (int*)malloc(sizeof(int) * 2); 
+   
+    while (i < numsSize) {
+        if (nums[i] == target) {
+            f1 = i;
+            break;
+        }
+        i++;
+    }
+    
+  
+    while (j >= 0) {
+        if (nums[j] == target) {
+            f2 = j;
+            break;
+        }
+        j--;
+    }
+    
+    
+    if (f1 != -1) {
+        a[0] = f1;
+        a[1] = f2;  
+        *returnSize = 2; 
+    } else {
+        a[0] = -1;  
+        a[1] = -1;
+        *returnSize = 2; 
+    }
+    
+    return a; 
+}
