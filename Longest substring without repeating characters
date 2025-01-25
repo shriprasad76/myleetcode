@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+
+int lengthOfLongestSubstring(char* s) {
+    int i = 0, j = 0;  
+    int maxLength = 0;  
+    int len = strlen(s);  
+    int seen[128] = {0}; 
+    
+    while (j < len) {
+        if (seen[s[j]] == 0) {
+           
+            seen[s[j]] = 1;  
+            j++;  
+            maxLength = (j - i > maxLength) ? (j - i) : maxLength; 
+        } else {
+           
+            seen[s[i]] = 0;  
+            i++;  
+        }
+    }
+    
+    return maxLength;  
+}
