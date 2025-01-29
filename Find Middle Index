@@ -1,0 +1,22 @@
+int findMiddleIndex(int* nums, int numsSize) {
+    int i,suml,sumr,j,k;
+    for(i=0;i<numsSize;i++)
+    {
+        suml=0;
+        sumr=0;
+        for(j=0;j<i;j++)
+        {
+            suml=suml+nums[j];
+        }
+        for(k=i+1;k<numsSize;k++)
+        {
+            sumr=sumr+nums[k];
+        }
+        if(sumr==suml)
+        {
+            return i;
+        }
+    }
+    return -1;
+    
+}
