@@ -1,0 +1,19 @@
+int totalMoney(int n) {
+    int total = 0;
+    int week = 1;
+    int k=1,b;
+    
+    for (int i = 1; i <= n; i++) {
+        b=i-1;
+        
+        if (b!=0&&b % 7 == 0) {
+            week =k+ 1;  
+            k++;
+        }
+       printf("%d ",week);
+       total=total+week;
+        week=week+1;
+        
+    }
+    return total;
+}
