@@ -1,0 +1,15 @@
+int maxContainers(int n, int w, int maxWeight) {
+    int i,c=0,sum=0;
+    for(i=0;i<(n*n);i++)
+    {
+        sum=sum+w;
+        c++;
+        if(sum>maxWeight)
+        {
+            c=c-1;
+            break;
+
+        }
+    }
+    return c;
+}
