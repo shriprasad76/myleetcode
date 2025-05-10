@@ -1,0 +1,34 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* numberGame(int* nums, int numsSize, int* returnSize) {
+    int* arr = (int*)malloc(sizeof(int) * numsSize);
+    int c = 0, n, i, min;
+    int f = 0; 
+    int in = 0; 
+
+    while (c < numsSize) {
+        min = 101;
+        for (i = 0; i < numsSize; i++) {
+            if (nums[i] < min) {
+                min = nums[i];
+                n = i;
+            }
+        }
+        nums[n] = 101; 
+
+        if (f == 0) {
+            
+            arr[in + 1] = min;
+            f = 1;
+        } else {
+            arr[in] = min;
+            f = 0;
+            in += 2; 
+        }
+        c++;
+    }
+
+    *returnSize = numsSize;
+    return arr;
+}
