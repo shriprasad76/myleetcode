@@ -1,0 +1,22 @@
+int minimumOperations(int** grid, int gridSize, int* gridColSize) {
+    int i,j,c=0,a=0;
+    for(j=0;j<*gridColSize;j++)
+    {
+        for(i=0;i<gridSize-1;i++)
+        {
+           c=grid[i][j];
+           if(grid[i+1][j]<=c)
+           {
+            while(grid[i+1][j]<=c)
+            {
+                grid[i+1][j]++;
+                a++;
+            }
+           }
+
+
+
+        }
+    }
+    return a;
+}
