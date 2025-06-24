@@ -1,0 +1,29 @@
+int smallestIndex(int* nums, int numsSize) {
+ int i,r,s,n;
+ for(i=0;i<numsSize;i++)
+ {
+    if(nums[i]<10)
+    {
+        if(i==nums[i])
+        {
+            return i;
+        }
+    }
+    else
+    {
+        s=0;
+        n=nums[i];
+        while(n>0)
+        {
+            r=n%10;
+            s=s+r;
+            n=n/10;
+        }
+        if(s==i)
+        {
+            return i;
+        }
+    }
+ }
+ return -1;
+}
