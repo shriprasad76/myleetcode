@@ -1,0 +1,21 @@
+int countNumbersWithUniqueDigits(int n) {
+
+
+    if (n == 0)
+        return 1;
+
+    int total = 1;
+    for (int k = 1; k <= n; k++) {
+        int count = 9;
+        int available = 9;
+        for (int i = 1; i < k; i++) {
+            count *= available;
+            available--;
+        }
+        total += count;
+    }
+    return total;
+}
+
+
+    
