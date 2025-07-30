@@ -1,0 +1,27 @@
+#include <stdlib.h>
+
+int* numMovesStones(int a, int b, int c, int* returnSize) {
+    int* r = (int*)malloc(sizeof(int) * 2);
+    int x, y, z;
+
+    if (a > b) { int t = a; a = b; b = t; }
+    if (b > c) { int t = b; b = c; c = t; }
+    if (a > b) { int t = a; a = b; b = t; }
+
+    x = a; y = b; z = c;
+
+    int gap1 = y - x;
+    int gap2 = z - y;
+
+    if (gap1 == 1 && gap2 == 1)
+        r[0] = 0;
+    else if (gap1 <= 2 || gap2 <= 2)
+        r[0] = 1;
+    else
+        r[0] = 2;
+
+    r[1] = gap1 + gap2 - 2;
+
+    *returnSize = 2;
+    return r;
+}
