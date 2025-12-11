@@ -1,0 +1,27 @@
+int sumDivisibleByK(int* nums, int numsSize, int k) {
+    int i,j,num,c,sum=0;
+    int a[numsSize][2];
+    for(i=0;i<numsSize;i++)
+    {
+        c=0;
+        for(j=0;j<numsSize;j++)
+        {
+            if(nums[i]==nums[j])
+            {
+                c++;
+            }
+
+        }
+        a[i][0]=nums[i];
+        a[i][1]=c;
+    }
+    for(i=0;i<numsSize;i++)
+    {
+        if(a[i][1]%k==0)
+        {
+            sum=sum+a[i][0];
+        }
+    }
+
+    return sum;
+}
