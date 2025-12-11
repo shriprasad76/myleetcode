@@ -1,0 +1,20 @@
+int earliestTime(int** tasks, int tasksSize, int* tasksColSize) {
+    int time_required=201;
+    int i,j,sum;
+    for(i=0;i<tasksSize;i++)
+    {
+        sum=0;
+        for(j=0;j<*tasksColSize;j++)
+        {
+            printf("%d ->",tasks[i][j]);
+            sum=sum+tasks[i][j];
+
+        }
+        if(sum<time_required)
+        {
+            time_required=sum;
+            
+        }
+    }
+    return time_required;
+}
