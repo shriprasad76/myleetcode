@@ -1,0 +1,22 @@
+int missingMultiple(int* nums, int numsSize, int k) {
+     int i,j,num,c;
+     for(i=k;i<101;i=i+k)
+     {
+        c=0;
+        for(j=0;j<numsSize;j++)
+        {
+            if(i==nums[j])
+            {
+                c++;
+                break;
+            }
+        }
+        if(c==0)
+        {
+            num=i;
+            break;
+        }
+
+     }
+     return num;
+}
