@@ -1,0 +1,47 @@
+int smallestAbsent(int* nums, int numsSize) {
+    int max=-101,num,sum=0,avg;
+    int i,j,c;
+    for(i=0;i<numsSize;i++)
+    {
+        sum=sum+nums[i];
+        if(nums[i]>max)
+        {
+            max=nums[i];
+        }
+
+    }
+    avg=sum/numsSize;
+    for(i=1;i<max;i++)
+    {
+        c=0;
+        for(j=0;j<numsSize;j++)
+        {
+            if(i==nums[j])
+            {
+                c=1;
+                break;
+                
+            }
+
+
+        }
+        if(c==0)
+        {
+            if(i>avg)
+            {
+                if(i<0)
+                {
+                    return 1;
+                }
+                return i;
+            }
+        }
+    }
+    if(max<0)
+    {
+        return 1;
+    }
+    return max+1;
+    
+
+}
