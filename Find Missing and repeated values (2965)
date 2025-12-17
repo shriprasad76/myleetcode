@@ -1,0 +1,42 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* findMissingAndRepeatedValues(int** grid, int gridSize, int* gridColSize, int* returnSize) {
+    int i,j,k,t=gridSize*gridSize,r;
+    int* ar=(int*)malloc(sizeof(int)*t);
+    int* arr=(int*)malloc(sizeof(int)*2);
+    
+    for(i=0;i<t;i++)
+    {
+        ar[i]=i+1;
+    }
+    for(i=0;i<gridSize;i++)
+    {
+        for(j=0;j<* gridColSize;j++)
+        {
+            if(ar[grid[i][j]-1]==0)
+            {
+                r=grid[i][j];
+                
+            }
+            else
+            {
+                ar[grid[i][j]-1]=0;
+
+            }
+            
+
+        }
+    }
+    arr[0]=r;
+    for(i=0;i<t;i++)
+    {
+        if(ar[i]!=0)
+        {
+            arr[1]=ar[i];
+            break;
+        }
+    }
+    *returnSize=2;
+    return arr;
+}
