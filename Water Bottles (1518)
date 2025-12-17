@@ -1,0 +1,17 @@
+int numWaterBottles(int numBottles, int numExchange) {
+    int a=numBottles,b=numExchange;
+    int c=numBottles,r;
+    while(a>=b)
+    {
+        c=c+(a/b);
+        r=a%b;
+        a=a/b;
+        
+
+        a=a+r;
+
+
+    }
+    return c;
+    
+}
